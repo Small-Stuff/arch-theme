@@ -1,11 +1,10 @@
 <?php
-get_header();
-
+/*
+Template Name: About
+*/
 ?>
-
-<h1>Archtober 2019 About</h1>
-
-<?php
-
-get_footer();
-?>
+<?php get_header(); ?>
+<main data-barba="container" data-barba-namespace="about">
+<?php $page = get_page_by_path('about') ?>
+<?= wpautop($page->post_content); ?>
+<?php get_footer(); ?>

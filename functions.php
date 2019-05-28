@@ -199,4 +199,45 @@ add_action( 'init', 'register_partner_types' );
 
 /* EXTRA */
 
+
+# cleanup url for display purposes:
+function pretty_url( $url ) {
+	$url = http($url);
+	$url = parse_url($url);
+	$url = $url['host'];
+	$url = preg_replace( '#^www1\.(.+\.)#i', '$1', $url );
+	$url = preg_replace( '#^www\.(.+\.)#i', '$1', $url );
+	return $url;
+}
+
+function http($url) {
+	if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+			$url = "http://" . $url;
+	}
+	return $url;
+}
+
+
+
+function get_terms_str( $post_id, $taxonomy ) {
+	$terms = wp_get_post_terms( $post_id, $taxonomy );
+	$arr = array();
+	foreach( $terms as $obj ){
+		array_push( $arr, $obj->name );
+	}
+	$str = implode( ',', $arr );
+	return $str;
+} # return string of terms associated w post
+
+function get_terms_str_slug( $post_id, $taxonomy ) {
+	$terms = wp_get_post_terms( $post_id, $taxonomy );
+	$arr = array();
+	foreach( $terms as $obj ){
+		array_push( $arr, $obj->slug );
+	}
+	$str = implode( ',', $arr );
+	return $str;
+} # return string of slugified terms associated w post
+
+
 add_filter( 'show_admin_bar', '__return_false' ); # when logged in

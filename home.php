@@ -11,15 +11,11 @@
 <!-- 
 	page structure
 	- opening load-in
-	- open "menu"
+		- needs current day, then how far we're into the current day
+	- //open "menu"
 	- events:
-	- need queried chronologically
-		- each day needs:
-		- recent (i.e. passed) events
-		- today's event
-			- today's event needs time based class
-		- future events
+		- today's event needs time based class
+		
  -->
-
-
+<?php get_template_part('components/loop', 'day') ?>
 <?php get_footer(); ?>
