@@ -12,7 +12,75 @@ Text Domain: archtober19
 
 */
 
+body, html{
+	width: 100%;
+	overflow-x: hidden;
+}
+
 
 *{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 	color: red;
+	font-family: Helvetica Neue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+/* calendar ui */
+
+.archtober_calendar{
+	display: inline-block;
+	width: 33vw;
+	vertical-align: top;
+}
+
+.archtober_calendar button{
+	display: inline-block;
+	border-radius: 0;
+	box-sizing: border-box;
+	width: calc(100%/7);
+	padding: 10px;
+
+}
+
+.archtober_calendar button:first-of-type{
+	margin-left: calc(100%/3.5);
+}
+
+.archtober_calendar button:nth-of-type(7n + 1){	background-color: beige; }
+.archtober_calendar button:nth-of-type(7n + 0){	background-color: green; }
+.archtober_calendar button:nth-of-type(7n + 2){	background-color: purple; }
+.archtober_calendar button:nth-of-type(7n + 3){	background-color: pink; }
+.archtober_calendar button:nth-of-type(7n + 4){	background-color: lime; }
+.archtober_calendar button:nth-of-type(7n + 5){ background-color: black; }
+.archtober_calendar button:nth-of-type(7n + 6){	background-color: brown; }
+
+.archtober_calendar button.day_recent{
+	opacity: 0.5;
+}
+
+.archtober_calendar button.day_current{
+	background-color: transparent;
+}
+
+
+.archtober_menu_index_wrapper{
+	display: inline-block;
+	width: 66vw;
+	padding-left: 33vw;
+	vertical-align: top;
+}
+
+ul.archtober_menu_index{
+	list-style: none;
+}
+
+ul.archtober_menu_index li{
+	padding-left: 0;
+}
+
+ul.archtober_menu_index li a{
+	text-decoration: none;
 }

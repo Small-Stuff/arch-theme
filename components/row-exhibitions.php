@@ -1,5 +1,5 @@
 <?php $id = get_the_ID(); ?>
-<?= get_the_title(); ?>
+<a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a>
 <?= get_field('date'); ?>
 <?= get_field('end_date'); ?>
 <?= get_field('opening_time'); ?>

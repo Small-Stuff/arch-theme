@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main data-barba="container" data-barba-namespace="home">
+<main data-barba="container" data-barba-namespace="test">
 
 
 

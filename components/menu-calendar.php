@@ -1,12 +1,22 @@
 <div class="archtober_calendar">
-	<?php 
+<?php 
+	
+	$today = new DateTime('today');
+	$today_str = $today->format('Y-m-d');
 
-		# this will be pulled later on:
-		$october = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+	$day = 1;
+	while ( $day <= 31):
+		$day_str = '2019-10-'.$day;
+		if($day_str < $today_str):
+			echo '<button class="cal_day day_recent" id="archtober_'.$day.'">'.$day.'</button>';
+		elseif ($day_str == $today_str):
+			echo '<button class="cal_day day_current" id="archtober_'.$day.'">'.$day.'</button>';
+		elseif ($day_str > $today_str):
+			echo '<button class="cal_day day_upcoming" id="archtober_'.$day.'">'.$day.'</button>';
+		endif;
 
-		foreach ($october as $day) {
-			echo '<button id="archtober_'.$day.'">'.$day.'</button>';
-		}
+		$day++;
+	endwhile;
 
-	?>
+?>
 </div>

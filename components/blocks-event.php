@@ -12,7 +12,7 @@
 <?php 
 	$id = get_the_ID(); 
 ?>
-<?= get_the_title(); ?>
+<a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a>
 <?= get_field('date'); ?>
 <?= get_field('event_time'); ?>
 <?= get_field('location'); ?>

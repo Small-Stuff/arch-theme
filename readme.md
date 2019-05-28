@@ -21,6 +21,7 @@
 	- [ ] footer info
 	- [ ] intro statement
 	- [ ] dynamic marquee
+	- [ ] single event
 - [ ] css
 	- [ ] mobile
 - [ ] js
