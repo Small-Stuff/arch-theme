@@ -1,4 +1,6 @@
+
 <?php 
+	# get types of sponsors
 	$sponsor_types = get_terms( array(
 		'orderby' => 'term_order',
 	  'taxonomy' => 'sponsor_type',
@@ -6,6 +8,7 @@
 		)
 	);
 
+	# for each sponsor type, submit query
 	foreach( $sponsor_types as $sponsor_type ):
 		$sponsor_arguments = array(
 			'post_type' => 'sponsors',
@@ -21,13 +24,15 @@
 		);
 		$sponsor_query = new WP_Query($sponsor_arguments);
 
-		if( $sponsor_query->have_posts() ):
-			echo $sponsor_type->name.'<br>';
+		if( $sponsor_query->have_posts() ): 
+			?><section class="sponsor_section">
+				<h1><?= $sponsor_type->name; ?></h1>
+			<?php
 			while( $sponsor_query->have_posts() ):
 				$sponsor_query->the_post();
 				get_template_part('components/row', 'sponsors');
-			endwhile;
+			endwhile; ?>
+			</section><?php
 		endif; 
 	endforeach;
-
 ?>

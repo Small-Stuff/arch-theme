@@ -1,22 +1,13 @@
-<section>
-<?php 
-	echo get_the_title().' '.get_field('date', false, false).' '.get_field('event_time').'<br>'; 
+<section class="arch_event_block event_block_<?= get_terms_str_slug($id, 'event_type') ?>">
+	<?php $id = get_the_ID(); ?>
+	<h5 class="event_type event_type_<?= get_terms_str_slug($id, 'event_type') ?>"><?= get_terms_str($id, 'event_type'); ?></h5>
+	<h2><a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a></h2>
+	<p><?= (get_field('location_url')) ? '<a target="_blank" href="'.get_field('location_url').'">'.get_field('location').'</a>' : get_field('location'); ?></p>
+	<p><?= get_field('event_time'); ?></p>
 
-	/*
-		- needs class to determine whether faded out
-		- needs class to determine BOTD
-		
-	*/
-?>
+	<?php if(get_terms_str_slug($id, 'event_type') == 'building-of-the-day' && get_field('featured_image')): ?>
+		<?= '<img src="'.get_field('featured_image').'">' ?>
+	<?php endif; ?>
 
-<?php 
-	$id = get_the_ID(); 
-?>
-<a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a>
-<?= get_field('date'); ?>
-<?= get_field('event_time'); ?>
-<?= get_field('location'); ?>
-<?= get_field('location_url'); ?>
-<?= get_terms_str($id, 'event_type'); ?>
-
+	<?= (get_field('event_external_link_url')) ? '<a class="event_link" target="_blank" href="'.get_field('event_external_link_url').'">'.get_field('event_external_link').'</a>' : '<span class="event_link">'.get_field('event_external_link').'</span>' ?>
 </section>

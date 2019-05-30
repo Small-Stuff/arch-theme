@@ -15,8 +15,8 @@
 			)
 		),
 		'orderby' => array(
-			'current_day' => 'DESC',
-			'current_event_time' => 'DESC'
+			'current_day' => 'ASC',
+			'current_event_time' => 'ASC'
 		)
 	);
 	$index_query = new WP_Query($index_arguments);
@@ -27,7 +27,7 @@
 			get_template_part('components/row', 'events');
 		endwhile;
 	else:
-		echo "currently no events";
+		# echo "currently no events";
 	endif;
 	
 ?>

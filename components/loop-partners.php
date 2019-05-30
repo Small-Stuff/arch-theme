@@ -1,5 +1,4 @@
 <?php 
-
 	$partner_arguments = array(
 		'post_type' => 'partners',
 		'posts_per_page' => -1,
@@ -15,7 +14,6 @@
 		)
 	);
 
-
 	$partner_query = new WP_Query($partner_arguments);
 
 	if( $partner_query->have_posts() ):
@@ -24,5 +22,4 @@
 			get_template_part('components/row', 'partners');
 		endwhile;
 	endif; 
-
 ?>

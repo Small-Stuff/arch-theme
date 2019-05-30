@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title><?php bloginfo( 'name' ); ?></title>
 	<?php wp_head(); ?>
-
 </head>
 <body data-barba="wrapper">
 <?php get_template_part('components/menu'); ?>

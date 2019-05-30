@@ -1,8 +1,16 @@
 var Site = {};
 
-window.onload = function(){
+Site.menuInteraction = function(){
+	document.querySelector("#arch_menu_button").onclick = function(){
+		console.log("hey")
+		document.querySelector("#arch_menu").classList.toggle("open")
+	}
+}
 
-console.log("test")
+
+window.onload = function(){
+	console.log("Archtober 2019\nSmall Stuff & Lukas Eigler-Harding")
+	Site.menuInteraction()
 
 
 }

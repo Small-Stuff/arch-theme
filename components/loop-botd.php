@@ -22,7 +22,7 @@
 	if( $botd_list->have_posts() ):
 		while( $botd_list->have_posts() ):
 			$botd_list->the_post();				
-			echo get_field('date', false, false);
+	#		echo get_field('date', false, false);
 			# for persistent background
 		endwhile;
 	endif;

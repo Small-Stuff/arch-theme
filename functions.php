@@ -197,7 +197,36 @@ function register_partner_types() {
 }
 add_action( 'init', 'register_partner_types' );
 
+# add options page for option
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(); 
+}
+
 /* EXTRA */
+# day related functions
+
+function weekday_month_day( $datetime ){
+	// Friday, October 13
+	date_default_timezone_set('US/Eastern');
+	$the_date = new DateTime($datetime);
+	$day_of_month = $the_date->format('j');
+	$date_str = $the_date->format('Y-m-d');
+	$month = $the_date->format('M');
+	$date_unix = strtotime($date_str);
+	$day_of_week = date("l", $date_unix);
+
+	$str = $day_of_week.", ".$month.". ".$day_of_month;
+	return $str;
+}
+
+function day_slug($daytime){
+	date_default_timezone_set('US/Eastern');
+	$the_date = new DateTime($datetime);
+	$date_str = $the_date->format('Y-m-d');
+	$date_unix = strtotime($date_str);
+	$day_of_week = date("l", $date_unix);
+	return $day_of_week;
+}
 
 
 # cleanup url for display purposes:
@@ -216,7 +245,6 @@ function http($url) {
 	}
 	return $url;
 }
-
 
 
 function get_terms_str( $post_id, $taxonomy ) {

@@ -1,11 +1,17 @@
-<?php $id = get_the_ID(); ?>
-<a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a>
-<?= get_field('date'); ?>
-<?= get_field('end_date'); ?>
-<?= get_field('opening_time'); ?>
-<?= get_field('closing_time'); ?>
-<?php foreach (get_field('days_closed') as $day): ?>
-	<?= $day ?>
-<?php endforeach ?>
-<?= get_field('location'); ?>
-<?= get_field('location_url'); ?>
+<?php $id = get_the_ID(); 
+	
+	$start_date = get_field('date', false, false);
+	$start_as_date = new DateTime($start_date);
+	$start_day = $start_as_date->format('M j');
+
+	$end_date = get_field('end_date', false, false);
+	$end_as_date = new DateTime($event_date);
+	$end_day = $end_as_date->format('M j');
+
+
+?>
+<a class="index_section" href="<?= get_permalink(); ?>">
+	<h3 class="index_section_title section_three event_title"><?= get_the_title(); ?></h3>
+	<h3 class="index_section_title section_three event_title"><?= (get_field('location_url')) ? '<a target="_blank" href="'.get_field('location_url').'">'.get_field('location').'</a>' : get_field('location') ?></h3>
+	<h3 class="index_section_title event_date section_three event_title"><?= $start_day." – ".$end_day ?></h3>
+</a>
