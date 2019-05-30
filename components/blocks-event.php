@@ -3,7 +3,7 @@
 	<h5 class="event_type event_type_<?= get_terms_str_slug($id, 'event_type') ?>"><?= get_terms_str($id, 'event_type'); ?></h5>
 	<h2><a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a></h2>
 	<p><?= (get_field('location_url')) ? '<a target="_blank" href="'.get_field('location_url').'">'.get_field('location').'</a>' : get_field('location'); ?></p>
-	<p><?= get_field('event_time'); ?></p>
+	<p><?= (get_field('event_endtime')) ? get_field('event_time')." – ".get_field('event_endtime') : get_field('event_time') ?></p>
 
 	<?php if(get_terms_str_slug($id, 'event_type') == 'building-of-the-day' && get_field('featured_image')): ?>
 		<?= '<img src="'.get_field('featured_image').'">' ?>

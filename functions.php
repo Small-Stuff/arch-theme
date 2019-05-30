@@ -224,8 +224,8 @@ function day_slug($daytime){
 	$the_date = new DateTime($datetime);
 	$date_str = $the_date->format('Y-m-d');
 	$date_unix = strtotime($date_str);
-	$day_of_week = date("l", $date_unix);
-	return $day_of_week;
+	$str = date("l", $date_unix);
+	return $str;
 }
 
 
@@ -268,4 +268,5 @@ function get_terms_str_slug( $post_id, $taxonomy ) {
 } # return string of slugified terms associated w post
 
 
+add_image_size( 'custom', 800, 533, true );
 add_filter( 'show_admin_bar', '__return_false' ); # when logged in

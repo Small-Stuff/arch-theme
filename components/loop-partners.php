@@ -21,5 +21,6 @@
 			$partner_query->the_post();
 			get_template_part('components/row', 'partners');
 		endwhile;
+		wp_reset_postdata(); # clear query
 	endif; 
 ?>

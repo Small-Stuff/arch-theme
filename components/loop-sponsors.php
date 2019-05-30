@@ -1,4 +1,3 @@
-
 <?php 
 	# get types of sponsors
 	$sponsor_types = get_terms( array(
@@ -33,6 +32,7 @@
 				get_template_part('components/row', 'sponsors');
 			endwhile; ?>
 			</section><?php
+		wp_reset_postdata(); # clear query
 		endif; 
 	endforeach;
 ?>

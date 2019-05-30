@@ -1,5 +1,5 @@
 <nav id="arch_menu">
-	<div id="arch_menu_button">
+	<div id="arch_menu_button" class="menu_header">
 		<div class="menu_line"></div>
 		<div class="menu_line"></div>
 	</div>

@@ -16,6 +16,13 @@ body, html{
 	position: relative;
 	width: 100%;
 	background-color: #D9CCCC;
+	font-size: 2.3vw;
+}
+
+@media(max-width: 768px){
+	body, html{
+		font-size: 20px;
+	}
 }
 
 html{
@@ -28,7 +35,6 @@ html{
 	padding: 0;
 	margin: 0;
 	font-family: Helvetica Neue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 2.3vw;
 	font-weight: bold;
 }
 
@@ -49,6 +55,14 @@ h1{
 	line-height: 1.2rem;
 }
 
+h4, h4 a{
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: normal;
+	margin-top: 0.25rem;
+	text-decoration: none;
+}
+
 h2, h2 a, h3, h3 a, h3 span{
 	font-size: 0.6rem;
 	line-height: 0.8rem;
@@ -64,6 +78,7 @@ p, p a{
 h5, h6{
 	font-size: 0.4rem;
 	font-weight: normal;
+	padding-bottom: 0.25rem;
 }
 
 h5{ text-transform: uppercase; }
@@ -78,26 +93,34 @@ h5{ text-transform: uppercase; }
 .day_Sunday h1, .day_Sunday h3.event_date{ color: #9794D1; }
 
 .day_Monday h2,
+.day_Monday.page_section h1.event_page_title,
 .day_Monday span.event_type,
 .day_Monday span.event_link { background-color: #FFDAD7; }
 .day_Tuesday h2,
+.day_Tuesday.page_section h1.event_page_title,
 .day_Tuesday span.event_type,
 .day_Tuesday span.event_link { background-color: #CCE6F4; }
 .day_Wednesday h2,
+.day_Wednesday.page_section h1.event_page_title,
 .day_Wednesday span.event_type,
 .day_Wednesday span.event_link { background-color: #FAE3CC; }
 .day_Thursday h2,
+.day_Thursday.page_section h1.event_page_title,
 .day_Thursday span.event_type,
 .day_Thursday span.event_link { background-color: #F2D4F1; }
 .day_Friday h2,
+.day_Friday.page_section h1.event_page_title,
 .day_Friday span.event_type,
 .day_Monday span.event_link { background-color: #FFDCCC; }
 .day_Saturday h2,
+.day_Saturday.page_section h1.event_page_title,
 .day_Saturday span.event_type,
 .day_Saturday span.event_link { background-color: #E4EBCD; }
 .day_Sunday h2,
+.day_Sunday.page_section h1.event_page_title,
 .day_Sunday span.event_type,
 .day_Sunday span.event_link { background-color: #EAEAF6; }
+
 
 /* menu ui */
 
@@ -129,6 +152,10 @@ h5{ text-transform: uppercase; }
 	pointer-events: initial;
 }
 
+.menu_header{
+	cursor: pointer;
+}
+
 #arch_menu_button{
 	position: absolute;
 	top: 0.25rem;
@@ -155,14 +182,24 @@ h5{ text-transform: uppercase; }
 /* calendar ui */
 .archtober_calendar{
 	display: inline-block;
-	width: 33vw;
+	width: 33%;
 	padding-left: 1vw;
 	vertical-align: top;
+}
+
+@media(max-width: 768px){
+	.archtober_calendar{
+		width: 100%;
+		margin-top: 2rem;
+		padding-right: 1vw;
+		display: block;
+	}
 }
 
 .archtober_calendar button{
 	display: inline-block;
 	border-radius: 0;
+	font-size: 1rem;
 	border: none;
 	box-sizing: border-box;
 	width: calc(100%/7);
@@ -170,6 +207,12 @@ h5{ text-transform: uppercase; }
 	height: 4.7142857143vw;
 	background-color: transparent;
 	cursor: pointer;
+}
+
+@media(max-width: 768px){
+	.archtober_calendar button{
+		height: 14.2857142857vw;
+	}
 }
 
 @media(any-hover: hover){
@@ -207,6 +250,14 @@ h5{ text-transform: uppercase; }
 	vertical-align: top;
 }
 
+@media(max-width: 768px){
+	.archtober_menu_index_wrapper{
+		width: 100%;
+		padding-left: 1vw;
+		margin-top: 1rem;
+	}
+}
+
 ul.archtober_menu_index{
 	list-style: none;
 }
@@ -226,10 +277,17 @@ ul.archtober_menu_index li a{
 	position: relative;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 0.5rem;
+	padding: 1vw;
 	padding-top: 3.5rem;
 	padding-bottom: 3.5rem;
 	padding-right: 33%;
+}
+
+@media(max-width: 768px){
+	.arch_intro{
+		padding-right: 1vw;
+
+	}
 }
 
 
@@ -263,7 +321,7 @@ ul.archtober_menu_index li a{
 	padding-top: 1vh;
 	padding-bottom: 0.1rem;
 	background-color: #D9CCCC;
-	z-index: 100;
+	z-index: 101;
 }
 
 .current_day{
@@ -273,6 +331,14 @@ ul.archtober_menu_index li a{
 	top: calc(1.1rem + 1vh);
 	width: 18vw;
 	padding-bottom: 0.25rem;
+	z-index: 100;
+}
+
+@media(max-width: 768px){
+	.current_day{
+		width: 100%;
+		background-color: #D9CCCC;
+	}	
 }
 
 .arch_event_block{
@@ -282,8 +348,10 @@ ul.archtober_menu_index li a{
 	vertical-align: bottom;
 	background-color: white;
 	font-size: 0.75rem;
+	line-height: 0.6rem;
 	width: 16vw;
 	margin-left: 1vw;
+	margin-bottom: 0.5rem;
 	min-height: 10rem;
 	padding: 0.25rem;
 }
@@ -303,23 +371,37 @@ ul.archtober_menu_index li a{
 	max-height: 20vw;
 }
 
+@media(max-width: 768px){
+	.arch_event_block, .arch_event_block.event_block_building-of-the-day{
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
 .arch_event_block.event_block_building-of-the-day h2, .arch_event_block.event_block_building-of-the-day a{
 	color: white;
 }
 
-.day_Monday .event_block_building-of-the-day h2, 
+.day_Monday .event_block_building-of-the-day h2,
+.day_Monday.page_section h1.event_page_title.event_page_building-of-the-day, 
 .day_Monday a.event_link { background-color: #FF4438; }
 .day_Tuesday .event_block_building-of-the-day h2, 
+.day_Tuesday.page_section h1.event_page_title.event_page_building-of-the-day,
 .day_Tuesday a.event_link { background-color: #0082CA; }
-.day_Wednesday .event_block_building-of-the-day h2, 
+.day_Wednesday .event_block_building-of-the-day h2,
+.day_Wednesday.page_section h1.event_page_title.event_page_building-of-the-day, 
 .day_Wednesday a.event_link { background-color: #E57302; }
-.day_Thursday .event_block_building-of-the-day h2, 
+.day_Thursday .event_block_building-of-the-day h2,
+.day_Thursday.page_section h1.event_page_title.event_page_building-of-the-day, 
 .day_Thursday a.event_link { background-color: #BF29BA; }
 .day_Friday .event_block_building-of-the-day h2, 
+.day_Friday.page_section h1.event_page_title.event_page_building-of-the-day,
 .day_Friday a.event_link { background-color: #FF5200; }
 .day_Saturday .event_block_building-of-the-day h2, 
+.day_Saturday.page_section h1.event_page_title.event_page_building-of-the-day,
 .day_Saturday a.event_link { background-color: #789903; }
 .day_Sunday .event_block_building-of-the-day h2, 
+.day_Sunday.page_section h1.event_page_title.event_page_building-of-the-day,
 .day_Sunday a.event_link { background-color: #9794D1; }
 
 
@@ -327,6 +409,10 @@ ul.archtober_menu_index li a{
 	display: inline;
 	padding-left: 0.1rem;
 	padding-right: 0.15rem;
+}
+
+.arch_event_block p{
+	margin-top: 0.25rem;
 }
 
 a.event_link{
@@ -473,15 +559,194 @@ span.event_type{
 
 
 /* PAGES */
+.day_header{
+	display: block;
+	color: black;
+}
+
 .page_section{
+	position: sticky;
+	top: 3rem;
 	margin-top: 10rem;
 	width: 50%;
+	display: inline-block;
+	vertical-align: top;
 	box-sizing: border-box;
 	padding-left: 1vw;
 }
 
+@media(max-width: 768px){
+	.page_section{
+		width: 100%;
+		display: block;
+		position: relative;
+	}
+}
+
+
+.event_page_title{
+	display: inline-block;
+	padding-left: 0.05rem;
+	padding-right: 0.15rem;
+}
+
+.page_section h1.event_page_title{
+	color: black;
+}
+
+.page_section h1.event_page_building-of-the-day{
+	color: white;
+}
+
+.page_section img{
+	width: calc(100% - 1vw);
+	display: block;
+	padding-bottom: 0;
+	margin-bottom: 0.1rem;
+}
+
 .page_section p{
+	font-size: 0.6rem;
+	line-height: 0.8rem;
+	font-weight: bold;
+}
+
+.page_section p.image_caption{
+	font-size: 0.6rem;
+	line-height: 0.8rem;
+	font-weight: normal;
+	margin-bottom: 2.5rem;
+}
+
+
+.event_content{
+	padding-top: 0.25rem;
+}
+
+
+.event_content h1, 
+.event_content h2,
+.event_content h3, 
+.event_content h4, 
+.event_content h5, 
+.event_content h6, 
+.event_content p{
+	background-color: transparent !important;
+}
+
+.page_section .event_content h1{
+	margin-top: 1rem;
+	margin-bottom: 0.75rem;
+}
+
+.page_section h2, .page_section h3{
+	font-size: 1rem;
+	line-height: 1.2rem;
+}
+.page_section h3{ font-weight: normal; }
+
+.page_section .event_content h2, .page_section .event_content h3{
+	margin-top: 0.75rem;
+	margin-bottom: 0.5rem;
+}
+
+.page_section h4{
 	font-size: 0.75rem;
 	line-height: 1rem;
+	font-weight: normal;
+}
+
+.page_section h4{
+	margin-top: 0.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.page_section .event_content h4{
+	margin-top: 0.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.page_section .event_content h5{
+	font-size: 0.6rem;
+	line-height: 1rem;
 	font-weight: bold;
+	text-transform: none;
+}
+
+.page_section h6{
+	font-size: 0.6rem;
+	line-height: 1rem;
+	text-transform: none;
+	font-weight: normal;
+}
+
+.page_section .event_content h5, .page_section h6{
+	margin-top: 0.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.page_section ul{
+	list-style: none;
+}
+
+.page_section ul li:before{
+	content: "";
+	display: inline-block;
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 0.8rem;
+	background-color: black;
+}
+
+
+/* footer */
+
+footer{
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	background-color: rgba(99, 101, 105, 1);
+	margin-top: 5rem;
+	padding-top: 2.5rem;
+	padding-bottom: 5rem;
+}
+
+.footer_column{
+	display: inline-block;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+@media(max-width: 768px){
+	.footer_column{
+		display: block;
+		width: 100%;
+	}
+}
+
+.footer_column h1,
+.footer_column h2,
+.footer_column h3,
+.footer_column h4,
+.footer_column h5,
+.footer_column h6,
+.footer_column p,
+.footer_column ul li{
+	color: white;
+	background-color: transparent;
+}
+
+
+.footer_column h1 a,
+.footer_column h2 a,
+.footer_column h3 a,
+.footer_column h4 a,
+.footer_column h5 a,
+.footer_column h6 a,
+.footer_column p a,
+.footer_column ul li a{
+	text-decoration: none;	
+	background-color: #D9CCCC;
+	color: black;
 }

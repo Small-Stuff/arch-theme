@@ -19,10 +19,10 @@
 		- [x] sponsors
 		- [x] partners
 	- [x] about
-	- [ ] footer info
 	- [x] intro statement
+	- [x] single event page
+	- [x] footer info
 	- [ ] dynamic marquee
-	- [ ] single event page
 - [ ] css
 	- [ ] mobile
 - [ ] js
@@ -40,16 +40,18 @@
 - [x] menu build out?
 
 ### May 30 
-- [ ] updated designs
-- [ ] event pages
+- [x] updated designs
+- [x] event pages
 - [ ] footer styles
+- [x] mobile styles initial pass
 
 ### May 31
 - [ ] subdomain set up
 - [ ] js
-	- [ ] nav js
+	- [ ] nav js (barba.js init)
 	- [ ] subscription js
-- [ ] mobile styles
+	- [ ] filtering js + css
+- [ ] mobile styles refinement
 
 ### waiting for 
 - [ ] icons
@@ -57,3 +59,8 @@
 	- [ ] BOTD nearby
 	- [ ] weekend get-aways
 	- [ ] library icon? 
+
+### other to-dos
+- [ ] exhibition page logic
+- [ ] intro sequence
+- [ ] silhoutte logic

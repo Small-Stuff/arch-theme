@@ -26,8 +26,8 @@
 			$index_query->the_post();
 			get_template_part('components/row', 'events');
 		endwhile;
+		wp_reset_postdata();
 	else:
-		# echo "currently no events";
 	endif;
 	
 ?>

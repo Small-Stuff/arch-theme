@@ -25,6 +25,7 @@
 	#		echo get_field('date', false, false);
 			# for persistent background
 		endwhile;
+	  wp_reset_postdata();
 	endif;
 
 
