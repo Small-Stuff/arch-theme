@@ -30,37 +30,31 @@
 	- [ ] page transition (esp. cross page event_type filtering)
 
 ## Schedule
-### May 29
-- [x] indeces general style
-	- [x] exhibition
-	- [x] event
-	- [x] sponsor
-	- [x] partner
-- [x] homepage general style
-- [x] menu build out?
-
-### May 30 
-- [x] updated designs
-- [x] event pages
-- [ ] footer styles
-- [x] mobile styles initial pass
 
 ### May 31
-- [ ] subdomain set up
+- [x] header logic
 - [ ] js
 	- [ ] nav js (barba.js init)
+		- [x] calendar
+		- [ ] filtering
+	- [ ] intro sequence
 	- [ ] subscription js
 	- [ ] filtering js + css
+- [ ] svg event icons logic
 - [ ] mobile styles refinement
+- [ ] subdomain set up
+
+### June 1
 
 ### waiting for 
 - [ ] icons
 	- [ ] kids
 	- [ ] BOTD nearby
 	- [ ] weekend get-aways
-	- [ ] library icon? 
+	- [ ] library icon?
 
 ### other to-dos
 - [ ] exhibition page logic
 - [ ] intro sequence
 - [ ] silhoutte logic
+- [ ] loading icon?

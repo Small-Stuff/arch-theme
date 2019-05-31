@@ -12,13 +12,12 @@
 		$day_str = ($day < 10) ? '2019-10-0'.$day : '2019-10-'.$day;
 
 		if($day_str < $today_str):
-			echo '<button class="cal_day day_recent" id="archtober_'.$day.'">'.$day.'</button>';
+			echo '<a href="'.get_site_url().'" class="cal_day day_recent" id="archtober_'.$day.'" data-targetday="'.$day.'">'.$day.'</a>';
 		elseif ($day_str == $today_str):
-			echo '<button class="cal_day day_current" id="archtober_'.$day.'">'.$day.'</button>';
+			echo '<a href="'.get_site_url().'" class="cal_day day_current" id="archtober_'.$day.'" data-targetday="'.$day.'">'.$day.'</a>';
 		elseif ($day_str > $today_str):
-			echo '<button class="cal_day day_upcoming" id="archtober_'.$day.'">'.$day.'</button>';
+			echo '<a href="'.get_site_url().'" class="cal_day day_upcoming" id="archtober_'.$day.'" data-targetday="'.$day.'">'.$day.'</a>';
 		endif;
-
 		$day++;
 	endwhile;
 ?>

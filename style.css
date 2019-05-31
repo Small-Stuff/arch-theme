@@ -196,50 +196,59 @@ h5{ text-transform: uppercase; }
 	}
 }
 
-.archtober_calendar button{
+.archtober_calendar a{
 	display: inline-block;
 	border-radius: 0;
 	font-size: 1rem;
+	text-align: center;
 	border: none;
+	border-width: 1px;
+	border-color: #D9CCCC;
+	border-style: hidden;
 	box-sizing: border-box;
 	width: calc(100%/7);
-	padding: 10px;
+	padding: 11px;
 	height: 4.7142857143vw;
 	background-color: transparent;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 @media(max-width: 768px){
-	.archtober_calendar button{
+	.archtober_calendar a{
 		height: 14.2857142857vw;
+		line-height: calc(14.2857142857vw - 20px);
 	}
 }
 
 @media(any-hover: hover){
-	.archtober_calendar button:hover{
+	.archtober_calendar a:hover{
 		opacity: 0.5;
 	}
 }
 
-.archtober_calendar button:first-of-type{ margin-left: calc(100%/3.5); }
-.archtober_calendar button:nth-of-type(7n + 1){	color: #0082CA; border-width: 1px; border-color:#0082CA;}
-.archtober_calendar button:nth-of-type(7n + 0){	color: #FF4438; border-width: 1px; border-color:#FF4438;}
-.archtober_calendar button:nth-of-type(7n + 2){	color: #E57302; border-width: 1px; border-color:#E57302;}
-.archtober_calendar button:nth-of-type(7n + 3){	color: #BF29BA; border-width: 1px; border-color:#BF29BA;}
-.archtober_calendar button:nth-of-type(7n + 4){	color: #FF5200; border-width: 1px; border-color:#FF5200;}
-.archtober_calendar button:nth-of-type(7n + 5){ color: #789903; border-width: 1px; border-color:#789903;}
-.archtober_calendar button:nth-of-type(7n + 6){	color: #9794D1; border-width: 1px; border-color:#9794D1;}
+.archtober_calendar a:first-of-type{ margin-left: calc(100%/3.5); }
+
+.archtober_calendar a:nth-of-type(7n + 1){	color: #0082CA; border-width: 1px; border-color:#0082CA;}
+.archtober_calendar a:nth-of-type(7n + 0){	color: #FF4438; border-width: 1px; border-color:#FF4438;}
+.archtober_calendar a:nth-of-type(7n + 2){	color: #E57302; border-width: 1px; border-color:#E57302;}
+.archtober_calendar a:nth-of-type(7n + 3){	color: #BF29BA; border-width: 1px; border-color:#BF29BA;}
+.archtober_calendar a:nth-of-type(7n + 4){	color: #FF5200; border-width: 1px; border-color:#FF5200;}
+.archtober_calendar a:nth-of-type(7n + 5){ color: #789903; border-width: 1px; border-color:#789903;}
+.archtober_calendar a:nth-of-type(7n + 6){	color: #9794D1; border-width: 1px; border-color:#9794D1;}
 
 .day_recent{opacity: 0.3; }
-.archtober_calendar button.day_recent{ opacity: 0.3; }
+.archtober_calendar a.day_recent{ opacity: 0.3; }
 
-.archtober_calendar button.day_current{
+.archtober_calendar a.day_current{
 	background-color: transparent;
 	border-style: solid;
+	padding: 10px;
 }
 
-.archtober_calendar button:active{
+.archtober_calendar a:active{
 	opacity: 1;
+	padding: 10px;
 	border-style: solid;
 }
 
@@ -322,6 +331,11 @@ ul.archtober_menu_index li a{
 	padding-bottom: 0.1rem;
 	background-color: #D9CCCC;
 	z-index: 101;
+	margin-bottom: calc(-1.1rem - 1vh);
+}
+
+.archtober_day{
+	padding-top: calc(1.1rem + 1vh);
 }
 
 .current_day{
@@ -404,6 +418,10 @@ ul.archtober_menu_index li a{
 .day_Sunday.page_section h1.event_page_title.event_page_building-of-the-day,
 .day_Sunday a.event_link { background-color: #9794D1; }
 
+.arch_event_block h5 a{
+	text-decoration: none;
+	font-weight: normal;
+}
 
 .arch_event_block h2{
 	display: inline;
