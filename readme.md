@@ -2,8 +2,8 @@
 
 ## build
 - barba.js
-- advanced custom fields
-- isotope by metafizzy (?)
+- tweenmax
+- advanced custom fields pro
 
 ## install
 - add plugin: [ACF](https://www.advancedcustomfields.com/)
@@ -42,9 +42,10 @@
 	- [ ] filtering js + css
 - [ ] svg event icons logic
 - [ ] mobile styles refinement
-- [ ] subdomain set up
+- [ ] subdomain set up (pending)
 
 ### June 1
+- [ ] set up git hook + push to staging
 
 ### waiting for 
 - [ ] icons
