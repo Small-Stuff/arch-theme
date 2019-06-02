@@ -28,44 +28,47 @@
 
 ## Schedule
 
-### May 31
-- [x] header logic
-- [x] calendar nav
 
 ### June 1
 - [ ] js
+	- [ ] subscription js (look at old theme)
 	- [x] intro sequence
 		- [x] homepage onload
 		- [x] homepage visited
 		- [x] subpages
 		- [x] event page
 		- [x] fade
-	- [ ] subscription js
-	- [ ] filtering js + css
-		- [ ] event index
+	- [x] scroll to in closed recent events
+	- [x] filtering js + css
+		- [x] event index
 			- filter should have:
-				- "type"
+				- [x] "type"
 				- "partner"
-		- [ ] exhibition index
-			- filter should by institution (i.e. location?)?
+		- [x] exhibition index: filter should by institution (i.e. location?)?
 - [x] svg event icons logic
 - [x] barba universal ui loading
-- [ ] homepage block link refinement
-- [ ] mobile styles refinement
-	- [ ] block font size
+- [x] click past events toggle
 - [ ] SERVER
-	- [ ] subdomain set up
+	- [x] subdomain set up
 		- [x] setup preview... theme
 		- [x] setup preview account
-		- [ ] switch over archtober.org to preview once ssl
+		- [x] switch over archtober.org to preview once ssl
 	- [ ] set up git hook + push to staging for 2019
 
+- [ ] meta tags toggle + info
+- css
+	- [ ] homepage block link refinement
+	- [ ] calendar css tune-up
+	- [ ] mobile styles refinement
+		- [ ] block font size
+
 ### other to-dos
-- [ ] exhibition page logic
-- [x] silhoutte logic
+- [ ] exhibition page design refinement
+- [x] silhouette logic
 - [x] is a loading icon? nope
 - [ ] pressure test things will more content
 	- pressure test recent events section
+- [ ] js compile/polyfills?
 
 ### waiting for 
 - [ ] icons

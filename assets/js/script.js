@@ -1,7 +1,9 @@
 var Site = {};
 Site.visited = false;
+Site.starting_namespace = "";
 Site.target_day = 0;
 Site.event_type = [];
+Site.institutions = [];
 
 
 Site.menuInteraction = function(){
@@ -12,8 +14,14 @@ Site.menuInteraction = function(){
 	})
 }
 
+Site.homepageToggle = function(){
+	document.querySelector("#recent_events .section_title").onclick = function(){
+		document.querySelector("#recent_events").classList.toggle("open")
+		TweenMax.to(window, 0.75, {scrollTo: "#recent_events"})
+	}
+}
+
 Site.up_to = function(current_day, botd_array){
-	console.log("up to")
 	// show up-to current day silhouette
 	// for each silhoutte check it in comparison to the current day, if it is <=, then show, else hide
 	botd_array.forEach(function(this_botd){
@@ -98,9 +106,16 @@ Site.calendar = function(){
 	document.querySelectorAll(".cal_day").forEach(function(cal_button){
 		cal_button.onclick = function(event){
 			var mainNameSpace = document.querySelector("main").getAttribute("data-barba-namespace");
+			console.log("mainNameSpace:", mainNameSpace)
 			if(mainNameSpace == "home"){
 				event.preventDefault()
-				document.querySelector("#arch_menu").classList.remove("open")
+				document.querySelector("#arch_menu").classList.remove("open") // exit menu
+				if(cal_button.classList.contains("day_recent")){ // if its a hidden day
+					document.querySelector("#recent_events").classList.add("open")
+				}else{
+					document.querySelector("#recent_events").classList.remove("open")
+				}
+
 				TweenMax.to(window, parseInt(cal_button.getAttribute("data-targetday"))/20, {scrollTo: "#day_" + cal_button.getAttribute("data-targetday")})
 			}else{
 				Site.target_day = parseInt(cal_button.getAttribute("data-targetday"))
@@ -113,25 +128,34 @@ Site.crosspage_event_filter = function(){
 	// if you click an event type from a different page, save that event type
 	document.querySelectorAll("a.event_type_filter").forEach(function(this_event_filter){
 		this_event_filter.onclick = function(event){
+			Site.event_type = []; //clear event list
 			Site.event_type.push(this_event_filter.getAttribute("data-eventtype"));
 		}
 	})
 }
 
-Site.ui_update = function(){
-	if(Site.event_type.length == 0){
+Site.ui_update = function(filter_array){
+	if(filter_array.length == 0){
 		document.querySelector("ul.arch_filter_list").classList.remove("active")
 		document.querySelector(".index_sections").classList.remove("active")
 	}else{
-		document.querySelector("ul.arch_filter_list").classList.add("active")	
+		document.querySelector("ul.arch_filter_list").classList.add("active")
 		document.querySelector(".index_sections").classList.add("active")
+		// update list tag
+
+		filter_array.forEach(function(filter, index){
+
+			document.querySelector("#eventtype_" + filter).classList.add("active")
+
+		})
+
 		// filter listed events
 		document.querySelectorAll(".index_section").forEach(function(this_section){
 			console.log(this_section)
 			var this_event_type_list = JSON.parse(this_section.getAttribute("data-eventtype"));
 			var active_status = false;
 			this_event_type_list.forEach(function(this_event_type, index){
-				if(Site.event_type.includes(this_event_type)){
+				if(filter_array.includes(this_event_type)){
 					this_section.classList.add("active")
 					active_status = true;
 				}
@@ -144,43 +168,44 @@ Site.ui_update = function(){
 	}
 }
 
-Site.event_filter = function(){
-	console.log("events archive page")
-	Site.ui_update();
+Site.event_filter = function(filter_array){
+	Site.ui_update(filter_array);
 	// if has selected filter(s): show
 	document.querySelectorAll("li.arch_filter").forEach(function(this_event_filter){
 		this_event_filter.onclick = function(event){
 			var this_slug = this_event_filter.getAttribute("data-eventtype");
-			if(Site.event_type.includes(this_slug)){
+			if(filter_array.includes(this_slug)){
 				// already has this filter on so i need to remove it via splice
 				this_event_filter.classList.remove("active")
-				Site.event_type.splice(Site.event_type.indexOf(this_slug), 1);
-
+				filter_array.splice(filter_array.indexOf(this_slug), 1);
 			}else{
 				// enact filter
-				Site.event_type.push(this_slug);
+				filter_array.push(this_slug);
 				this_event_filter.classList.add("active")
 			}
 			// update overall status
-			Site.ui_update();
+			Site.ui_update(filter_array);
 		}
 	})
-
-
 }
 
 window.onload = function(){
 	console.log("Archtober 2019  👀\nSmall Stuff & Lukas Eigler-Harding")
 	// load ui
+	Site.starting_namespace = document.querySelector("main").getAttribute("data-barba-namespace");
 	Site.menuInteraction()
 	Site.calendar()
 	Site.crosspage_event_filter()
-	Site.botd_load(document.querySelector("main").getAttribute("data-barba-namespace"))
+	Site.botd_load(Site.starting_namespace)
 	Site.visited = true;
 
 	//page dependent functions
-	if(document.querySelector("main").getAttribute("data-barba-namespace") == "events-archive"){
-		Site.event_filter()
+	if(Site.starting_namespace == "events-archive"){
+		Site.event_filter(Site.event_type)
+	}else if(Site.starting_namespace == "exhibitions"){
+		Site.event_filter(Site.institutions)
+	}else if(Site.starting_namespace == "home"){
+		Site.homepageToggle();
 	}
 
 	// barba transitions
@@ -200,6 +225,12 @@ window.onload = function(){
 			afterEnter(data){
 				console.log("homepage entered!")
 				if(Site.target_day > 0 && Site.target_day < 32){
+					if(document.querySelector("#archtober_" + Site.target_day).classList.contains("day_recent")){ // if its a hidden day
+						document.querySelector("#recent_events").classList.add("open")
+					}else{
+						document.querySelector("#recent_events").classList.remove("open")
+					}
+
 					document.querySelector("#open_menu").classList.add("visited")
 					TweenMax.set(window, {scrollTo: "#day_" + Site.target_day})
 					// clear day
@@ -207,6 +238,8 @@ window.onload = function(){
 				}else{
 					Site.pageEnter(data.next.namespace)
 				}
+				Site.calendar()
+				Site.homepageToggle()
 			}
 		},
 		{
@@ -222,14 +255,23 @@ window.onload = function(){
 			},
 			afterEnter(data){
 				Site.pageEnter(data.next.namespace)
-				// filter for event type
-				console.log(Site.event_type)
-				// select filter. 
-
-				// run filter function
-
-				// clear transition filter
-				// Site.event_type = [];
+				Site.event_filter(Site.event_type) // filter for event type
+			}
+		},
+		{
+			name: 'target_exhibitions',
+			sync: true,
+			to: {
+				namespace: [
+					'exhibitions'
+				]
+			},
+			beforeLeave(data){
+				Site.pageLeave()
+			},
+			afterEnter(data){
+				Site.pageEnter(data.next.namespace)
+				Site.event_filter(Site.institutions)				
 			}
 		},
 		{

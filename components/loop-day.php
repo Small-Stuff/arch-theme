@@ -9,8 +9,8 @@
 	$upcoming_events = false;
 
 	#override
-	$yesterday_str = '2019-10-00';
-	$today_str = '2019-10-01';
+	$yesterday_str = '2019-10-02';
+	$today_str = '2019-10-03';
 	# echo '<br>'.$yesterday_str.' '.$today_str;
 
 	while( $day_int <= 31):
@@ -21,8 +21,8 @@
 
 		# recent events section
 		if($date_str <= $yesterday_str && $recent_events == false): ?>
-			<section class="archtober_event_section" id="recent_events">
-				<h1>Recent Events</h1>
+			<section class="archtober_event_section <?= ($today_str >= '2019-11-01') ? 'archtober_over' : '' ?>" id="recent_events">
+				<h1 class="section_title">Past Events</h1>
 			<?php $recent_events = true;
 		endif;
 

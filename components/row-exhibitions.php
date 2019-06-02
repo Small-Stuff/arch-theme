@@ -7,7 +7,10 @@
 	$end_as_date = new DateTime($event_date);
 	$end_day = $end_as_date->format('M j');
 
-?><a class="index_section" href="<?= get_permalink(); ?>">
+?><a class="index_section" 
+		 href="<?= get_permalink(); ?>"
+		 data-eventtype='<?= get_terms_array_slug($id, 'institution') ?>'
+	>
 	<h3 class="index_section_title section_three event_title"><?= get_the_title(); ?></h3>
 	<h3 class="index_section_title section_three event_title">
 		<?php if(get_terms_str($id, 'institution')): ?>

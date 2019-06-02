@@ -134,7 +134,7 @@ h5{ text-transform: uppercase; }
 	width: 100%;
 	top: 0;
 	left: 0;
-	height: 1.25rem;
+	height: 1.5rem;
 	overflow-x: hidden;
 	overflow-y: hidden;
 	pointer-events: none;
@@ -163,23 +163,38 @@ h5{ text-transform: uppercase; }
 	position: absolute;
 	top: 0.25rem;
 	right: 0.5rem;
+	width: 1.5rem;
+	height: 1rem;
 	pointer-events: initial;
 	cursor: pointer;
+	background-color: transparent;
+	border:none;
+	-webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .menu_line{
+	position: absolute;
 	width: 1.5rem;
 	height: 0.25rem;
 	background-color: black;
 	margin-bottom: 0.25rem;
 }
+.menu_line:first-of-type{
+	top: 0;
+	left: 0;
+}
+.menu_line:nth-of-type(2){
+	bottom: 0;
+	left: 0;
+}
 
 #arch_menu.open .menu_line:first-of-type{
-	transform: rotate(30deg) translate(0.1rem, 0.3rem);
+	transform: rotate(30deg) translate(0.2rem, 0.3rem);
 }
 
 #arch_menu.open .menu_line:nth-of-type(2){
-	transform: rotate(-30deg) translate(0.05rem, -0.2rem);
+	transform: rotate(-30deg) translate(0.125rem, -0.1rem);
 }
 
 /* calendar ui */
@@ -405,13 +420,15 @@ ul.archtober_menu_index li a{
 }
 
 
-#recent_events.archtober_event_section.open{
+#recent_events.archtober_event_section.open, #recent_events.archtober_event_section.archtober_over{
 	opacity: 1;
+	overflow-x: initial;
+	overflow-y: initial;
 	height: auto;
 	cursor: default;
 }
 
-.section_title{
+.section_title, #recent_events.open .section_title, #recent_events.archtober_over .section_title{
 	position: sticky;
 	position: -webkit-sticky;
 	top: 0;
@@ -420,6 +437,13 @@ ul.archtober_menu_index li a{
 	z-index: 101;
 	margin-bottom: calc(-1.1rem - 1vh);
 }
+
+#recent_events .section_title{
+	padding-top:0;
+	margin-bottom: auto;
+}
+
+
 
 @media(max-width: 768px){
 	.section_title{
@@ -673,7 +697,7 @@ li.arch_filter{
 	padding-right: 0.5rem;
 }
 
-.index_exhibitions{
+.index_partners{
 	margin-top: 10rem;
 }
 
@@ -754,6 +778,16 @@ span.event_type{
 	padding-right: 0.5rem;
 }
 
+@media(max-width: 768px){
+	.sponsor_section{
+		width: 100%;
+		display: block;
+	}
+	.sponsor_section:nth-of-type(3), .sponsor_section{
+		margin-top: 2rem;
+	}
+}
+
 .sponsor_section a{
 	display: block;
 	text-decoration: none;
@@ -765,6 +799,13 @@ span.event_type{
 	max-width: 100%;
 	max-height: 10rem;
 	margin-top: 0.5rem;
+}
+
+@media(max-width: 768px){
+	.sponsor_section img, .sponsor_section a img{
+		max-height: 100%;
+		max-width: 80%;
+	}
 }
 
 

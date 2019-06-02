@@ -1,8 +1,8 @@
 <nav id="arch_menu">
-	<div id="arch_menu_button" class="menu_header">
+	<button id="arch_menu_button" class="menu_header">
 		<div class="menu_line"></div>
 		<div class="menu_line"></div>
-	</div>
+	</button>
 	<?php 
 		get_template_part('components/menu', 'calendar');
 		get_template_part('components/menu', 'index'); 
