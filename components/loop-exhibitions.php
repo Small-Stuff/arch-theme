@@ -26,9 +26,9 @@
 			$index_query->the_post();
 			get_template_part('components/row', 'exhibitions');
 		endwhile;
-		wp_reset_postdata(); # clear query
+		wp_reset_postdata();
 	else:
-		echo "currently no exhibitions";
+		echo "There are currently no exhibitions.";
 	endif; 
 
 ?>

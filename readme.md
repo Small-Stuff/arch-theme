@@ -25,27 +25,47 @@
 	- [ ] dynamic marquee
 - [ ] css
 	- [ ] mobile
-- [ ] js
-	- [ ] calendar
-	- [ ] page transition (esp. cross page event_type filtering)
 
 ## Schedule
 
 ### May 31
 - [x] header logic
-- [ ] js
-	- [ ] nav js (barba.js init)
-		- [x] calendar
-		- [ ] filtering
-	- [ ] intro sequence
-	- [ ] subscription js
-	- [ ] filtering js + css
-- [ ] svg event icons logic
-- [ ] mobile styles refinement
-- [ ] subdomain set up (pending)
+- [x] calendar nav
 
 ### June 1
-- [ ] set up git hook + push to staging
+- [ ] js
+	- [x] intro sequence
+		- [x] homepage onload
+		- [x] homepage visited
+		- [x] subpages
+		- [x] event page
+		- [x] fade
+	- [ ] subscription js
+	- [ ] filtering js + css
+		- [ ] event index
+			- filter should have:
+				- "type"
+				- "partner"
+		- [ ] exhibition index
+			- filter should by institution (i.e. location?)?
+- [x] svg event icons logic
+- [x] barba universal ui loading
+- [ ] homepage block link refinement
+- [ ] mobile styles refinement
+	- [ ] block font size
+- [ ] SERVER
+	- [ ] subdomain set up
+		- [x] setup preview... theme
+		- [x] setup preview account
+		- [ ] switch over archtober.org to preview once ssl
+	- [ ] set up git hook + push to staging for 2019
+
+### other to-dos
+- [ ] exhibition page logic
+- [x] silhoutte logic
+- [x] is a loading icon? nope
+- [ ] pressure test things will more content
+	- pressure test recent events section
 
 ### waiting for 
 - [ ] icons
@@ -53,9 +73,3 @@
 	- [ ] BOTD nearby
 	- [ ] weekend get-aways
 	- [ ] library icon?
-
-### other to-dos
-- [ ] exhibition page logic
-- [ ] intro sequence
-- [ ] silhoutte logic
-- [ ] loading icon?

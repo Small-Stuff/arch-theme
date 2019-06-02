@@ -6,10 +6,11 @@
 	$date_unix = strtotime($date_str);
 	$day_of_week = date("l", $date_unix);
 
+
+	$day_of_month = $the_date->format('j');
+
 	$current_day = new DateTime('today');
-
 	$status = '';
-
 	if($current_day < $the_date):
 		$status .= '<span class="day_header">Upcoming Event</span>';
 	elseif ($current_day == $the_date):
@@ -19,6 +20,6 @@
 	endif;
 
 ?>
-<section class="menu_header index_header day_<?= $day_of_week; ?>">
+<section class="event_header menu_header index_header day_<?= $day_of_week; ?>" data-silhouetteday="<?= $day_of_month ?>">
 		<h1><?= $status ?> <?= weekday_month_day($this_event_date) ?></h1>
 </section>

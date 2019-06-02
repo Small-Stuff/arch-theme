@@ -162,7 +162,7 @@ h5{ text-transform: uppercase; }
 #arch_menu_button{
 	position: absolute;
 	top: 0.25rem;
-	right: 1vw;
+	right: 0.5rem;
 	pointer-events: initial;
 	cursor: pointer;
 }
@@ -186,7 +186,7 @@ h5{ text-transform: uppercase; }
 .archtober_calendar{
 	display: inline-block;
 	width: 33%;
-	padding-left: 1vw;
+	padding-left: 0.5rem;
 	vertical-align: top;
 }
 
@@ -194,7 +194,7 @@ h5{ text-transform: uppercase; }
 	.archtober_calendar{
 		width: 100%;
 		margin-top: 2rem;
-		padding-right: 1vw;
+		padding-right: 0.5rem;
 		display: block;
 	}
 }
@@ -265,7 +265,7 @@ h5{ text-transform: uppercase; }
 @media(max-width: 768px){
 	.archtober_menu_index_wrapper{
 		width: 100%;
-		padding-left: 1vw;
+		padding-left: 0.5rem;
 		margin-top: 1rem;
 	}
 }
@@ -292,9 +292,45 @@ ul.archtober_menu_index li a{
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
+	pointer-events: none;
 }
 
-.botd_list img{
+.archtober_logo{
+	position: absolute;
+	object-fit: contain;
+	object-position: center;
+	width:50vw;
+	height:60%;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin-top:auto;
+	margin-bottom:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.archtober_logo.botd_hyper_vis{
+/*	opacity: 1;*/
+}
+
+.archtober_logo.botd_hidden{
+	opacity: 0;
+}
+
+.botd_filter{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	pointer-events: none;
+	background-color:#D9CCCC;
+	opacity: 0;
+}
+
+.botd_list img.botd_image{
 	position: absolute;
 	object-fit: contain;
 	object-position: center;
@@ -303,15 +339,25 @@ ul.archtober_menu_index li a{
 	top:0;
 	bottom:0;
 	left:0;
-	bottom:0;
+	right:0;
 	margin-top:auto;
 	margin-bottom:auto;
 	margin-left:auto;
-	margin-bottom:auto;
+	margin-right:auto;
+	transition: 0.05s opacity;
+
+}
+
+.botd_list img.botd_image.botd_hidden{
+	opacity: 0;
 }
 
 #open_menu{
 	margin-top: 100vh;
+}
+
+#open_menu.visited{
+	margin-top: 0;
 }
 
 .arch_intro{
@@ -319,7 +365,7 @@ ul.archtober_menu_index li a{
 	position: relative;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 1vw;
+	padding: 0.5rem;
 	padding-top: 3.5rem;
 	padding-bottom: 3.5rem;
 	padding-right: 33%;
@@ -327,7 +373,7 @@ ul.archtober_menu_index li a{
 
 @media(max-width: 768px){
 	.arch_intro{
-		padding-right: 1vw;
+		padding-right: 0.5rem;
 
 	}
 }
@@ -340,6 +386,14 @@ ul.archtober_menu_index li a{
 	width: 100%;
 	border-top: solid rgba(0,0,0,0.5) 1px;
 	padding: 0.5rem;
+	padding-bottom: 1.5rem;
+}
+
+@media(max-width: 768px){
+	.archtober_event_section{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 #recent_events.archtober_event_section{
@@ -359,12 +413,22 @@ ul.archtober_menu_index li a{
 
 .section_title{
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
 	padding-top: 1vh;
 	padding-bottom: 0.1rem;
-	background-color: #D9CCCC;
 	z-index: 101;
 	margin-bottom: calc(-1.1rem - 1vh);
+}
+
+@media(max-width: 768px){
+	.section_title{
+		width: 100%;
+		box-sizing: border-box;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+		background-color: #D9CCCC;
+	}	
 }
 
 .archtober_day{
@@ -373,6 +437,7 @@ ul.archtober_menu_index li a{
 
 .current_day{
 	position: sticky;
+	position: -webkit-sticky;
 	display: inline-block;
 	vertical-align: top;
 	top: calc(1.1rem + 1vh);
@@ -384,6 +449,9 @@ ul.archtober_menu_index li a{
 @media(max-width: 768px){
 	.current_day{
 		width: 100%;
+		box-sizing: border-box;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
 		background-color: #D9CCCC;
 	}	
 }
@@ -420,10 +488,29 @@ ul.archtober_menu_index li a{
 
 @media(max-width: 768px){
 	.arch_event_block, .arch_event_block.event_block_building-of-the-day{
-		width: 100%;
-		margin-left: 0;
+		width: calc(100% - 1rem);
+		margin-left: 0.5rem;
 	}
 }
+
+.arch_event_block img.archtober_event_icon{
+	position: absolute;
+	top: -1rem;
+	right: -1rem;
+	width: 10vw;
+	transform: rotate(20deg);
+	object-fit: contain;
+}
+
+@media(max-width: 768px){
+	.arch_event_block img.archtober_event_icon{
+		top:1rem;
+		width: 20vw;
+		right: -0.25rem;
+	}
+}
+
+
 
 .arch_event_block.event_block_building-of-the-day h2, .arch_event_block.event_block_building-of-the-day a{
 	color: white;
@@ -489,10 +576,9 @@ a.event_link{
 	top: 0;
 	left: 0;
 	box-sizing: border-box;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	width: 100%;
-	background-color: #D9CCCC;
 }
 
 .index_header h1{
@@ -521,6 +607,55 @@ a.event_link{
 .filter_nav{
 	margin-top: 10rem;
 	margin-bottom: 2.5rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.arch_filter_list{
+	list-style: none;
+}
+
+li.arch_filter:before, li.arch_filter:after{
+	content: "";
+	position: absolute;
+	top: 0.15rem;
+	right: 0.1rem;
+	height: 0.5rem;
+	width: 0.5rem;
+	border-radius: 0.5rem;
+	background-color: black;
+	display: none;
+}
+
+li.arch_filter.active:after{
+	display: block;
+}
+
+li.arch_filter{
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+	display: inline-block;
+	background-color: white;
+	font-size: 0.6rem;
+  line-height: 0.8rem;
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+
+@media(any-hover:hover){
+	li.arch_filter:hover{
+		opacity: 0.5;
+	}
+}
+
+.arch_filter_list.active li.arch_filter{
+	opacity: 0.7;
+}
+
+.arch_filter_list.active li.arch_filter.active{
+	opacity: 1;
+	padding-right: 0.7rem;
 }
 
 .index_section_titles{
@@ -534,8 +669,8 @@ a.event_link{
 	box-sizing: border-box;
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 
 .index_exhibitions{
@@ -549,7 +684,14 @@ a.event_link{
 }
 .event_title{ flex-grow: 2; }
 
+.index_sections{
+	width: 100%;
+	position: relative;
+	overflow-x: hidden;
+}
+
 .index_section{
+	position: relative;
 	text-decoration: none;
 	width: 100%;
 	display: flex;
@@ -560,8 +702,25 @@ a.event_link{
 	padding-bottom: 0.25rem;
 	min-height: 2.5rem;
 	box-sizing: border-box;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.index_sections.active .index_section{
+	display: none;
+}
+
+.index_sections.active .index_section.active{
+	display: flex;
+}
+
+.index_section img.archtober_event_icon{
+	position: absolute;
+	top: -0.5rem;
+	right: 50vw;
+	width: 10vw;
+	transform: rotate(20deg);
+	object-fit: contain;
 }
 
 .section_six{
@@ -591,8 +750,8 @@ span.event_type{
 	display: inline-block;
 	vertical-align: top;
 	box-sizing: border-box;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 
 .sponsor_section a{
@@ -623,12 +782,23 @@ span.event_type{
 
 .page_section{
 	position: sticky;
+	position: -webkit-sticky;
 	top: 3rem;
 	width: 50%;
 	display: inline-block;
 	vertical-align: top;
 	box-sizing: border-box;
-	padding-left: 1vw;
+	padding-left: 0.5rem;
+}
+
+
+.page_section img.archtober_event_icon{
+	position: absolute;
+	top: -2rem;
+	right: -1rem;
+	width: 10vw;
+	transform: rotate(20deg);
+	object-fit: contain;
 }
 
 @media(max-width: 768px){
@@ -636,6 +806,11 @@ span.event_type{
 		width: 100%;
 		display: block;
 		position: relative;
+	}
+
+	.page_section img.archtober_event_icon{
+		right: 2rem;
+		width: 20vw;
 	}
 }
 
@@ -655,7 +830,7 @@ span.event_type{
 }
 
 .page_section img{
-	width: calc(100% - 1vw);
+	width: calc(100% - 0.5rem);
 	display: block;
 	padding-bottom: 0;
 	margin-bottom: 0.1rem;
@@ -760,8 +935,8 @@ span.event_type{
 footer{
 	width: 100%;
 	box-sizing: border-box;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	background-color: rgba(99, 101, 105, 1);
 	margin-top: 5rem;
 	padding-top: 2.5rem;

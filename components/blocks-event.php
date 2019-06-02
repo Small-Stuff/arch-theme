@@ -8,6 +8,6 @@
 	<?php if(get_terms_str_slug($id, 'event_type') == 'building-of-the-day' && get_field('featured_image')): ?>
 		<?= '<img src="'.get_field('featured_image').'">' ?>
 	<?php endif; ?>
-
 	<?= (get_field('event_external_link_url')) ? '<a class="event_link" target="_blank" href="'.get_field('event_external_link_url').'">'.get_field('event_external_link').'</a>' : '<span class="event_link">'.get_field('event_external_link').'</span>' ?>
+	<?php get_template_part('components/extra', 'icons') ?>
 </section>

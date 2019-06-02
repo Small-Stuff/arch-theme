@@ -5,7 +5,7 @@
 	$today_str = $today->format('Y-m-DD');
 
 	# override
-	$today_str = '2019-10-05';
+	$today_str = '2019-10-03';
 
 	$day = 1;
 	while ( $day <= 31):
@@ -14,7 +14,7 @@
 		if($day_str < $today_str):
 			echo '<a href="'.get_site_url().'" class="cal_day day_recent" id="archtober_'.$day.'" data-targetday="'.$day.'">'.$day.'</a>';
 		elseif ($day_str == $today_str):
-			echo '<a href="'.get_site_url().'" class="cal_day day_current" id="archtober_'.$day.'" data-targetday="'.$day.'">'.$day.'</a>';
+			echo '<a href="'.get_site_url().'" class="cal_day day_current" id="archtober_'.$day.'" data-targetday="'.$day.'" data-current_day="'.$day.'">'.$day.'</a>';
 		elseif ($day_str > $today_str):
 			echo '<a href="'.get_site_url().'" class="cal_day day_upcoming" id="archtober_'.$day.'" data-targetday="'.$day.'">'.$day.'</a>';
 		endif;

@@ -269,5 +269,26 @@ function get_terms_str_slug( $post_id, $taxonomy ) {
 	return $str;
 } # return string of slugified terms associated w post
 
+function get_terms_array_slug( $post_id, $taxonomy ) {
+	$terms = wp_get_post_terms( $post_id, $taxonomy );
+	$arr = array();
+	foreach( $terms as $obj ){
+		array_push( $arr, $obj->slug );
+	}
+	#print_r(json_encode($arr));
+	return json_encode($arr);
+} # return array of slugified terms associated w post
+
+function get_terms_icons( $post_id, $taxonomy ) {
+	$terms = wp_get_post_terms( $post_id, $taxonomy );
+	$arr = array();
+	foreach( $terms as $obj ){
+		$the_icon = get_field('event_type_icon', $obj->taxonomy . '_' . $obj->term_id);
+		#echo $the_icon;
+		array_push( $arr, $the_icon );
+	}
+	return $arr;
+} # return string of icon urls associated w post
+
 add_image_size( 'custom', 800, 533, true );
 add_filter( 'show_admin_bar', '__return_false' ); # when logged in
