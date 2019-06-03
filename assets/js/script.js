@@ -21,6 +21,60 @@ Site.homepageToggle = function(){
 	}
 }
 
+Site.emailSubmission = function(){
+	// console.log, submission
+	// borrowed from 2018 theme
+	var subscribe = $('#subscribe');
+
+	$('#subscribe form').submit(function(e) {
+    var data, form, message;
+    e.preventDefault();
+    form = $(this);
+    message = form.find('.message');
+    data = $(this).serializeObject();
+    form.removeClass('error success');
+    message.html('');
+    return $.ajax({
+      url: subscribe.data('form'),
+      method: this.method,
+      dataType: 'json',
+      data: data,
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR, textStatus, errorThrown);
+        form.addClass('error');
+        if (data.result) {
+          return message.html('Sorry, an error has occurred.');
+        }
+      },
+      success: function(data, textStatus, jqXHR) {
+        console.log("success", data, textStatus, jqXHR);
+        form.addClass(data.status);
+        if (data.result) {
+          return message.html(data.result);
+        }
+      }
+    });
+  });
+
+  $.fn.serializeObject = function() {
+    var a, o;
+    o = {};
+    a = this.serializeArray();
+    $.each(a, function() {
+      if (o[this.name]) {
+        if (!o[this.name].push) {
+          o[this.name] = [o[this.name]];
+        }
+        return o[this.name].push(this.value || '');
+      } else {
+        return o[this.name] = this.value || '';
+      }
+    });
+    return o;
+  };
+
+}
+
 Site.up_to = function(current_day, botd_array){
 	// show up-to current day silhouette
 	// for each silhoutte check it in comparison to the current day, if it is <=, then show, else hide
@@ -47,7 +101,7 @@ Site.intro_load = function(current_day, botd_array){
 	})
 	TweenMax.to(".archtober_logo", 1/botd_array.length, {opacity: 1, delay: 1, ease: Power4.easeInOut})
 	TweenMax.to(".botd_filter", 1.5, {opacity: 0.9, delay: 1.5, ease: Power4.easeInOut})
-	TweenMax.to("#open_menu", 1.5, {marginTop: 0, delay: 1.5, ease: Power4.easeInOut, onComplete: function(){
+	TweenMax.to("#open_menu", 1.5, {marginTop: 0, delay: 2, ease: Power4.easeInOut, onComplete: function(){
 			document.querySelector("#open_menu").classList.add("visited")
 		}
 	})
@@ -194,6 +248,7 @@ window.onload = function(){
 	// load ui
 	Site.starting_namespace = document.querySelector("main").getAttribute("data-barba-namespace");
 	Site.menuInteraction()
+	Site.emailSubmission()
 	Site.calendar()
 	Site.crosspage_event_filter()
 	Site.botd_load(Site.starting_namespace)
@@ -271,7 +326,7 @@ window.onload = function(){
 			},
 			afterEnter(data){
 				Site.pageEnter(data.next.namespace)
-				Site.event_filter(Site.institutions)				
+				Site.event_filter(Site.institutions)
 			}
 		},
 		{

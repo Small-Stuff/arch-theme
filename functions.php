@@ -11,11 +11,11 @@ by lukas eigler-harding
 function archtober_scripts() {
 	$ver = '1.0';
 	wp_enqueue_style( 'style', get_stylesheet_uri(), null, $ver );
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.4.1.min.js', array(), false );
+	wp_enqueue_script( 'jqueryfull', get_template_directory_uri() . '/assets/js/jquery-3.4.1.min.js', array(), false );
 	wp_enqueue_script( 'TweenMax', get_template_directory_uri() . '/assets/js/TweenMax.min.js', array(), false );
 	wp_enqueue_script( 'ScrollToPlugin', get_template_directory_uri() . '/assets/js/ScrollToPlugin.min.js', array(), false );
 	wp_enqueue_script( 'barbaUmd', get_template_directory_uri() . '/assets/js/barba.umd.js', array(), true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/script.js', array('jquery', 'TweenMax', 'ScrollToPlugin', 'barbaUmd'), $ver, true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/script.js', array('jqueryfull', 'TweenMax', 'ScrollToPlugin', 'barbaUmd'), $ver, true );
 }
 add_action( 'wp_enqueue_scripts', 'archtober_scripts' );
 

@@ -29,9 +29,9 @@
 ## Schedule
 
 
-### June 1
-- [ ] js
-	- [ ] subscription js (look at old theme)
+### June 1 + 2
+- [x] js
+	- [x] subscription js (look at old theme)
 	- [x] intro sequence
 		- [x] homepage onload
 		- [x] homepage visited
@@ -48,27 +48,28 @@
 - [x] svg event icons logic
 - [x] barba universal ui loading
 - [x] click past events toggle
+- [ ] meta tags toggle + info
 - [ ] SERVER
 	- [x] subdomain set up
 		- [x] setup preview... theme
 		- [x] setup preview account
 		- [x] switch over archtober.org to preview once ssl
 	- [ ] set up git hook + push to staging for 2019
-
-- [ ] meta tags toggle + info
 - css
-	- [ ] homepage block link refinement
-	- [ ] calendar css tune-up
-	- [ ] mobile styles refinement
-		- [ ] block font size
+	- [x] marquee logic
+	- [x] calendar css tune-up
+	- [x] homepage block link refinement
+	- [x] mobile styles refinement
+		- [x] block font size
 
 ### other to-dos
 - [ ] exhibition page design refinement
 - [x] silhouette logic
 - [x] is a loading icon? nope
+- [ ] js compile/polyfills...
 - [ ] pressure test things will more content
 	- pressure test recent events section
-- [ ] js compile/polyfills?
+- [ ] live content population testing
 
 ### waiting for 
 - [ ] icons

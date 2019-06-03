@@ -22,4 +22,5 @@
 ?>
 <section class="event_header menu_header index_header day_<?= $day_of_week; ?>" data-silhouetteday="<?= $day_of_month ?>">
 		<h1><?= $status ?> <?= weekday_month_day($this_event_date) ?></h1>
+		<?php get_template_part('components/extra', 'icons') ?>
 </section>

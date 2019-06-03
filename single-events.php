@@ -26,7 +26,6 @@ Template Name: Single Event
 		<h4 class="event_info"><?= (get_field('event_endtime')) ? get_field('event_time')." – ".get_field('event_endtime') : get_field('event_time') ?></h4>
 		<h4 class="event_info"><?= (get_field('location_url')) ? '<a target="_blank" href="'.get_field('location_url').'">'.get_field('location').'</a>' : get_field('location'); ?></h4>
 		<section class="event_content"><?= $content ?></section>
-		<?php get_template_part('components/extra', 'icons') ?>
 	</article
 	><aside class="page_section">
 		<?php get_template_part('components/gallery'); ?>

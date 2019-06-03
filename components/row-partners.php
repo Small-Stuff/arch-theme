@@ -10,16 +10,16 @@
     endwhile;
   endif;
 ?>
-<div class="index_section">
-	<h3 class="index_section_title section_three event_title">
+<div class="index_section arch_partners">
+	<h3 class="index_section_title section_three event_title arch_partner">
 		<?= get_the_title(); ?>
 		<?= $subnames; ?>
 		</h3>
-	<h3 class="index_section_title section_six">
+	<h3 class="index_section_title section_six arch_partner">
 		<a target="_blank" href="<?= get_field('website') ?>"><?= pretty_url(get_field('website')) ?></a>
 		<?= $subwebsites; ?>
 	</h3>
-	<h3 class="index_section_title section_six">
+	<h3 class="index_section_title section_six arch_partner">
 		<a href="tel:+<?= get_field('phone_number') ?>" ><?= get_field('phone_number') ?></a>
 		<?= $subphones; ?>
 	</h3>

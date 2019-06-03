@@ -6,5 +6,6 @@
 	<?php 
 		get_template_part('components/menu', 'calendar');
 		get_template_part('components/menu', 'index'); 
+		get_template_part('components/menu', 'misclinks');
 	?>
 </nav>

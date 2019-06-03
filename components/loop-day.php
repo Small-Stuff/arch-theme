@@ -22,7 +22,7 @@
 		# recent events section
 		if($date_str <= $yesterday_str && $recent_events == false): ?>
 			<section class="archtober_event_section <?= ($today_str >= '2019-11-01') ? 'archtober_over' : '' ?>" id="recent_events">
-				<h1 class="section_title">Past Events</h1>
+				<button class="section_title">Past Events</button>
 			<?php $recent_events = true;
 		endif;
 
